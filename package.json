@@ -4,7 +4,8 @@
   "description": "<h1>   Banco de Dados Empresa Júnior    <img src='/project_media/db.png' width='100px'> </h1>",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon app.js"
   },
   "repository": {
     "type": "git",
