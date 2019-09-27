@@ -11,6 +11,11 @@ const mysql = require('mysql')
 
 const app = express()
 
+
+/**
+ * Pra iniciar o MySQL manualmente: $ service mysql start
+ * editar /etc/init/mysql.conf
+ */
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
