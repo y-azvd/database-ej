@@ -54,6 +54,7 @@ async function createTables() {
   })
 
   console.log('tables creation finished')
+  await pool.end()
 }
 
 
