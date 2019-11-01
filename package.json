@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "nodemon app.js",
     "create-tables": "node scripts/tables/index.js",
-    "seed-tables": "node scripts/seeds/index.js"
+    "seed-tables": "node scripts/seeds/index.js",
+    "populate-db": "npm run create-tables && npm run seed-tables"
   },
   "repository": {
     "type": "git",
