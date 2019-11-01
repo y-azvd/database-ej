@@ -4,29 +4,16 @@
 const fs = require('fs')
 
 /**
- * Importar as configurações do banco de dados
- * e guardar em `pool`.
+ * Importar banco de dados já conectado
  */
-const pool = require('../../config/database');
+const db = require('../../database')
 
 
-pool.connect()
-  .then(async (error, client, done) => {
-    createTables()
-  })
-  .catch(error => {
-    console.log(error)
-  })
-  .finally(async () => {
-    /**
-     * Desconectar do banco de dados
-     */
-    await pool.end()
-  })
-  
+createTables()
 
-async function createTables() {
-    /**
+
+function createTables() {
+  /**
    * Vai ler todos os arquivos nesse 
    * diretório e guardar apenas
    * os que terminam com `.sql`. 
@@ -37,24 +24,25 @@ async function createTables() {
       script.endsWith('.sql')
     )
 
-
-  /**
+    /**
    * Pra cada arquivo, pegue o conteúdo
    * transforme em string e faça a query
    * pro banco de dados
    */
   sqlScripts.forEach(async (script) => {
     // scriptName é melhor
-    console.log('>', script)
+    console.log('-', script)
     const query = fs
       .readFileSync(`${__dirname}/${script}`)
       .toString()
-    console.log('\t... done\n')
-    await pool.query(query)
+    console.log('\t... done')
+    await db.query(query)
   })
 
-  console.log('tables creation finished')
-  await pool.end()
+  console.log('- tables creation finished')
+  db.close()
 }
+
+
 
 

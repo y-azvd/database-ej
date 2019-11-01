@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS "status" CASCADE;
+
+CREATE TABLE "status"(
+  "status_id" serial PRIMARY KEY UNIQUE NOT NULL,
+  "name" VARCHAR (50) UNIQUE NOT NULL
+);
