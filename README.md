@@ -1,5 +1,5 @@
 <h1>
-  <img src='/project_media/db.png' width='100px'>
+  <img src='/.github/db.png' width='100px'>
   Banco de Dados Empresa Júnior 
 </h1>
 
