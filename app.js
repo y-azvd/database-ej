@@ -1,11 +1,15 @@
 const express = require('express')
 
-const pool = require('./config/database')
+const db = require('./database')
 
 const app = express()
 
-app.get('/actors', async (request, response) => {
-  const results = await pool.query('SELECT * FROM actor LIMIT 10;')
+app.get('/', (request, response) => {
+  return response.send('go to /clients')
+})
+
+app.get('/clients', async (request, response) => {
+  const results = await db.query('SELECT * FROM clients LIMIT 10;')
   return response.json(results.rows)
 })
 
