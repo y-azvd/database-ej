@@ -9,9 +9,8 @@ CREATE TABLE "projects"(
   "difficulty" INTEGER NOT NULL,
   "revenue" FLOAT(8) NOT NULL,
   "price" FLOAT(8) NOT NULL,
-  "cost" FLOAT(8) NOT NULL,
-  "nps" INTEGER
+  "nps" INTEGER,
 
-  -- manager_id FOREIGN KEY
-  -- client_id FOREIGN KEY
+  -- chaves estrangeiras
+  "client_id" INTEGER NOT NULL
 );

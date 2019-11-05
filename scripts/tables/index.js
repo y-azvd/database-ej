@@ -8,39 +8,58 @@ const fs = require('fs')
  */
 const db = require('../../database')
 
-createTables()
+create()
 
-function createTables() {
+async function create() {
+  await createTables()
+  await alterTables()
+  db.close()
+}
+
+
+async function createTables() {
+  console.log('creating tables')
   /**
    * Vai ler todos os arquivos nesse 
    * diretório e guardar apenas
-   * os que terminam com `.sql`. 
+   * os que começam com `create-`. 
    */
   const sqlScripts = fs
     .readdirSync(__dirname)
     .filter(script => 
-      script.endsWith('.sql')
+      script.startsWith('create-')
     )
-
+  
   /**
    * Pra cada arquivo, pegue o conteúdo,
    * transforme-o em string e faça a query
    * pro banco de dados
    */
-  sqlScripts.forEach(async (script) => {
-    // scriptName é melhor
-    console.log('-', script)
+  for (let i = 0; i < sqlScripts.length; i++) {
+    const script = sqlScripts[i]
+    
+    console.log(script)
     const query = fs
       .readFileSync(`${__dirname}/${script}`)
       .toString()
     
     await db.query(query)
-  })
+    console.log('- done')
+  }
 
-  console.log('- tables creation finished')
-  db.close()
+  console.log('creating tables done')
 }
 
 
-
+async function alterTables() {
+  console.log('altering tables')
+  const scriptName = 'alter-table.sql'
+  
+  const query = fs
+  .readFileSync(`${__dirname}/${scriptName}`)
+  .toString()
+  
+  await db.query(query)
+  console.log('altering tables done')
+}
 
