@@ -35,10 +35,9 @@ function seedTables() {
     const query = fs
       .readFileSync(`${__dirname}/${script}`)
       .toString()
-    console.log('\t... done')
     await db.query(query)
   })
 
-  console.log('- tables seeding(?) finished')
+  console.log('- tables seeding finished')
   db.close()
 }

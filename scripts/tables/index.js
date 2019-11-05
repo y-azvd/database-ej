@@ -8,9 +8,7 @@ const fs = require('fs')
  */
 const db = require('../../database')
 
-
 createTables()
-
 
 function createTables() {
   /**
@@ -24,9 +22,9 @@ function createTables() {
       script.endsWith('.sql')
     )
 
-    /**
-   * Pra cada arquivo, pegue o conteúdo
-   * transforme em string e faça a query
+  /**
+   * Pra cada arquivo, pegue o conteúdo,
+   * transforme-o em string e faça a query
    * pro banco de dados
    */
   sqlScripts.forEach(async (script) => {
@@ -35,7 +33,7 @@ function createTables() {
     const query = fs
       .readFileSync(`${__dirname}/${script}`)
       .toString()
-    console.log('\t... done')
+    
     await db.query(query)
   })
 

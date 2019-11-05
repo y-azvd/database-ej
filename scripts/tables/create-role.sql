@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS "role" CASCADE;
+
+CREATE TABLE "role"(
+  "role_id" serial PRIMARY KEY UNIQUE NOT NULL,
+  "name" VARCHAR (50) UNIQUE NOT NULL
+);
