@@ -1,3 +1,5 @@
+-- Esse arquivo adiciona restrições a algumas chaves estrangeiras de algumas tabelas
+
 ALTER TABLE "members"
   ADD CONSTRAINT members_status_id_fkey FOREIGN KEY("status_id") REFERENCES "status"("status_id");
 

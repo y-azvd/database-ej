@@ -15,5 +15,10 @@ com o banco de dados em `./database/index.js` e certifique-se que o servidor pos
 ```
 npm run populate-db
 ```
+e depois
+```
+npm run watch
+```
+
 4. acesse o endereço `http://localhost:3000/clients` pelo navegador de sua preferência.
 
