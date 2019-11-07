@@ -10,6 +10,7 @@ const db = require('../../database')
 
 create()
 
+
 async function create() {
   await createTables()
   await alterTables()

@@ -12,7 +12,7 @@ const db = require('../../database')
 seedTables()
 
 
-function seedTables() {
+async function seedTables() {
   /**
    * Vai ler todos os arquivos nesse 
    * diretório e guardar apenas
@@ -29,14 +29,13 @@ function seedTables() {
    * transforme em string e faça a query
    * pro banco de dados
    */
-  sqlScripts.forEach(async (script) => {
-    // scriptName é melhor
-    console.log('-', script)
+  for(let i = 0; i < sqlScripts.length; i++) {
+    const script = sqlScripts[i]
     const query = fs
       .readFileSync(`${__dirname}/${script}`)
       .toString()
     await db.query(query)
-  })
+  }
 
   console.log('- tables seeding finished')
   db.close()
