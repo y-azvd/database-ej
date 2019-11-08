@@ -14,10 +14,58 @@ app.get('/clients', async (request, response) => {
   return response.json(results.rows)
 })
 
+
 app.get('/projects', async (request, response) => {
-  const results = await db.query('SELECT * FROM projects LIMIT 10;')
+  const results = await db.query(
+    sql`
+    SELECT
+      "projects"."project_id",
+      "projects"."name",
+      "projects"."started_at",
+
+      "clients"."client_id" AS "client[id]",
+      "clients"."name" AS "client[name]",
+      "clients"."email" AS "client[email]"
+    
+    FROM 
+      "projects"
+        LEFT OUTER JOIN
+      "clients"
+      
+    ON
+      "projects"."client_id" = "clients"."client_id"
+    ;
+    `
+  )
+  console.log()
+  const str = JSON.stringify(results.rows)
+  const obj = JSON.parse(str)
+  console.log(obj)
   return response.json(results.rows)
 })
+
+app.get('/expensive-projects', async (request, response) => {
+  const results = await db.query(
+    `
+    SELECT 
+      "project_id", 
+      "name",
+      "revenue",
+      "price",
+      "revenue" - "price" AS "loss"
+    
+    FROM
+      "projects"
+
+    WHERE
+      "revenue" < "price"
+    ;
+    `
+  )
+
+  return response.json(results.rows)
+})
+
 
 app.listen(3000, () => {
   console.log('app listening on PORT 3000')

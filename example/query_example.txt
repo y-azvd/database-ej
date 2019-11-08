@@ -1,0 +1,35 @@
+const helpOrdersFromStudent = await HelpOrder.findAll({
+  where: { student_id: request.params.studentId },
+  include: [
+    {
+      model: Student,
+      as: 'student',
+      attributes: ['id', 'name', 'email']
+    }
+  ]
+})
+
+
+SELECT 
+  "HelpOrder"."id", 
+  "HelpOrder"."question", 
+  "HelpOrder"."answer", 
+  "HelpOrder"."answer_at" AS "answerAt", 
+  "HelpOrder"."created_at" AS "createdAt", 
+  "HelpOrder"."updated_at" AS "updatedAt", 
+  "HelpOrder"."student_id", 
+
+  "student"."id" AS "student.id", 
+  "student"."name" AS "student.name", 
+  "student"."email" AS "student.email" 
+
+FROM 
+  "help_orders" AS "HelpOrder" 
+    LEFT OUTER JOIN 
+  "students" AS "student" 
+
+ON 
+  "HelpOrder"."student_id" = "student"."id" 
+  
+WHERE 
+  "HelpOrder"."student_id" = '3';
