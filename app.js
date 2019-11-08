@@ -2,10 +2,6 @@ const express = require('express')
 
 const db = require('./database')
 
-/**
- * const clientController = require('../controllers/clientControlelr')
- */
-
 const app = express()
 
 app.get('/', (request, response) => {
