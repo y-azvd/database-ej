@@ -3,5 +3,5 @@ DROP TABLE IF EXISTS "clients" CASCADE;
 CREATE TABLE "clients"(
   "client_id" SERIAL PRIMARY KEY,
   "name" VARCHAR (50) NOT NULL,
-  "email" CHAR (50) UNIQUE NOT NULL
+  "email" VARCHAR (50) UNIQUE NOT NULL
 );

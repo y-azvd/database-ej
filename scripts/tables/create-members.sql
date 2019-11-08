@@ -2,7 +2,6 @@ DROP TABLE IF EXISTS "members" CASCADE;
 
 CREATE TABLE "members"(
   "cpf" CHAR (11)  PRIMARY KEY NOT NULL,
-  -- unb_id talvez seja melhor
   "registration" CHAR (10) UNIQUE NOT NULL,
   "name" VARCHAR (50) NOT NULL,
   "email" CHAR (50) UNIQUE NOT NULL,

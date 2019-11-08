@@ -8,23 +8,29 @@ const fs = require('fs')
  */
 const db = require('../../database')
 
+/**
+ * A ordem do processo de população importa, 
+ * por isso deve adicionar primeiro as entidades
+ * e relacionamentos que não possuem chave 
+ * estrangeira
+ */
+const sqlScripts = [
+  'seed-status.sql',
+  'seed-clients.sql',
+  'seed-client-phones.sql',
+  'seed-projects.sql',
+]
 
 seedTables()
+  .catch(error => {
+    console.log(error)
+    console.log(error.detail)
+    process.exit(-1)
+  })
 
 
 async function seedTables() {
   /**
-   * Vai ler todos os arquivos nesse 
-   * diretório e guardar apenas
-   * os que terminam com `.sql`. 
-   */
-  const sqlScripts = fs
-    .readdirSync(__dirname)
-    .filter(script => 
-      script.endsWith('.sql')
-    )
-
-    /**
    * Pra cada arquivo, pegue o conteúdo
    * transforme em string e faça a query
    * pro banco de dados
