@@ -18,6 +18,11 @@ app.get('/clients', async (request, response) => {
   return response.json(results.rows)
 })
 
+app.get('/projects', async (request, response) => {
+  const results = await db.query('SELECT * FROM projects LIMIT 10;')
+  return response.json(results.rows)
+})
+
 app.listen(3000, () => {
   console.log('app listening on PORT 3000')
 })

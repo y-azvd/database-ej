@@ -12,7 +12,11 @@ const db = require('../../database')
  * A ordem do processo de população importa, 
  * por isso deve adicionar primeiro as entidades
  * e relacionamentos que não possuem chave 
- * estrangeira
+ * estrangeira.
+ * 
+ * Desse jeito, pra cada arquivo seed-nomda-databela.sql
+ * deve-se adicionar, na ordem adequada, esse 
+ * nome no seguinte array.
  */
 const sqlScripts = [
   'seed-status.sql',
@@ -23,6 +27,7 @@ const sqlScripts = [
 
 seedTables()
   .catch(error => {
+    console.log('É VEI, DEU ERRO AÍ. DÁ UM JEITO')
     console.log(error)
     console.log(error.detail)
     process.exit(-1)
