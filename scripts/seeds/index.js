@@ -25,7 +25,8 @@ const sqlScripts = [
   'seed-projects.sql',
   'seed-members.sql',
   'seed-roles.sql',
-  'seed-directorships.sql'
+  'seed-directorships.sql',
+  'vai caralho'
 ]
 
 seedTables()
