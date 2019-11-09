@@ -10,8 +10,26 @@ INSERT INTO "members" (
 )
 
 VALUES 
-  ('14370290102', '140949410', 'Yudi Azevedo', 'azvd@empjunior.com', 1),
+  -- DIRETORES
+  ('04269015140', '150758482', 'Luan Rosé', 'lu_rosé@empjunior.com', 1),
+  ('04369015139', '160758482', 'Enzo Caladrares', 'enxo@empjunior.com', 1),
+  ('04266615199', '130152482', 'Bruno Dakota', 'dakota@empjunior.com', 1),
+  ('04369015140', '170758482', 'Carolina Sartori', 'carol@empjunior.com', 2),
+  ('04369015141', '171758482', 'Lucca JP-BR', 'lucca@empjunior.com', 1),
+  ('04269615110', '120152482', 'Gustavo Ioguercio', 'iogue@empjunior.com', 1),
+
+  -- GERENTES
+  ('16370290102', '160949410', 'Yudi Azevedo', 'azvd@empjunior.com', 1),
+  ('19370290101', '190949410', 'Lizângela', 'liz@empjunior.com', 1),
+  ('19370290103', '190949419', 'David Chaterlad', 'david@empjunior.com', 1),
+  ('12370290103', '120949410', 'Victor Gabariel', 'vic@empjunior.com', 1),
+
+  -- CONSULTORES NORMAIS
+  ('04269015141', '161758482', 'Mathew Brave', 'brave@empjunior.com', 1),
   ('04266610108', '161142480', 'Eduardo Zaiatz', 'edu@empjunior.com', 3),
   ('04266610198', '141142480', 'Gabiel Fe', 'gab@empjunior.com', 2),
+  ('05266610190', '151142480', 'Maria Leão', 'maria@empjunior.com', 1),
+  ('05266610170', '131142481', 'Lemos', 'lemos@empjunior.com', 3),
+  ('04268615110', '150192482', 'Luzia Mozão', 'lulu@empjunior.com', 1),
   ('04366610109', '141142580', 'Gui Caetano', 'gui@empjunior.com', 2)
 ;
