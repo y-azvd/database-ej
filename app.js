@@ -37,6 +37,7 @@ app.get('/projects', async (request, response) => {
     ;
     `
   )
+
   console.log()
   const str = JSON.stringify(results.rows)
   const obj = JSON.parse(str)
@@ -44,7 +45,7 @@ app.get('/projects', async (request, response) => {
   return response.json(results.rows)
 })
 
-app.get('/expensive-projects', async (request, response) => {
+app.get('/projects/expensive', async (request, response) => {
   const results = await db.query(
     `
     SELECT 
@@ -65,6 +66,53 @@ app.get('/expensive-projects', async (request, response) => {
 
   return response.json(results.rows)
 })
+
+app.get('/projects/late', async (request, response) => {
+  const results = await db.query(
+    `
+    SELECT 
+      "project_id", 
+      "name"
+    
+    FROM
+      "projects"
+
+    WHERE
+      "delivery_at" < "delivered_at"
+        OR 
+      "delivery_at" > 
+    ;
+    `
+  )
+
+  return response.json(results.rows)
+})
+
+
+app.get('/members-emails', async (request, response) => {
+  const results = await db.query(
+    `
+    SELECT 
+      "member_id", 
+      "name",
+      "email",
+      
+      "status"."name" AS "status"
+    
+    FROM
+      "members"
+        JOIN
+      "status"
+    
+    ON 
+      "members"."status_id" = "status"."status"."id"
+    ;
+    `
+  )
+
+  return response.json(results.rows)
+})
+
 
 
 app.listen(3000, () => {

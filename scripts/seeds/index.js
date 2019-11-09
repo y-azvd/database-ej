@@ -23,6 +23,7 @@ const sqlScripts = [
   'seed-clients.sql',
   'seed-client-phones.sql',
   'seed-projects.sql',
+  'seed-members.sql',
 ]
 
 seedTables()
