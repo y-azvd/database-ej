@@ -18,6 +18,8 @@ const db = require('../../database')
  * deve-se adicionar, na ordem adequada, esse 
  * nome no seguinte array.
  */
+
+ // para teste
 const sqlScripts = [
   'seed-status.sql',
   'seed-clients.sql',
