@@ -9,8 +9,10 @@
 
 ### Para começar
 1. baixe o reposítório
-2. cheque as configurações da conexão
+
+2. cheque as configurações de autenticação (usuário:senha) da conexão
 com o banco de dados em `./database/index.js` e certifique-se que o servidor postgres está rodando
+
 3. abra o terminal na pasta raíz e execute:
 ```
 npm run populate-db

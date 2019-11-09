@@ -5,3 +5,4 @@ CREATE TABLE "consultant_works_project"(
   "cpf" CHAR (11) NOT NULL,
   "project_id" INTEGER NOT NULL
 );
+ 
