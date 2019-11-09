@@ -19,7 +19,6 @@ const db = require('../../database')
  * nome no seguinte array.
  */
 
- // para teste
 const sqlScripts = [
   'seed-status.sql',
   'seed-clients.sql',
