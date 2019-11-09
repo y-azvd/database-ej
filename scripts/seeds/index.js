@@ -24,6 +24,8 @@ const sqlScripts = [
   'seed-client-phones.sql',
   'seed-projects.sql',
   'seed-members.sql',
+  'seed-roles.sql',
+  'seed-directorships.sql'
 ]
 
 seedTables()
@@ -52,3 +54,4 @@ async function seedTables() {
   console.log('- tables seeding finished')
   db.close()
 }
+
