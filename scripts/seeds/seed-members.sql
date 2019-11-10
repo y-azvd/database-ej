@@ -13,10 +13,10 @@ VALUES
   -- DIRETORES
   ('04269015140', '150758482', 'Luan Rosé', 'lu_rose@empjunior.com', 1),
   ('04369015139', '160758482', 'Enzo Caladrares', 'enxo@empjunior.com', 1),
-  ('04266615199', '130152482', 'Bruno Dakota', 'dakota@empjunior.com', 1),
   ('04369015141', '171758482', 'Lucca JP-BR', 'lucca@empjunior.com', 1),
-  ('04269615110', '120152482', 'Gustavo Ioguercio', 'iogue@empjunior.com', 1),
   ('04269015141', '161758482', 'Mathew Brave', 'brave@empjunior.com', 1),
+  ('04266615199', '130152482', 'Bruno Dakota', 'dakota@empjunior.com', 1),
+  ('04269615110', '120152482', 'Gustavo Ioguercio', 'iogue@empjunior.com', 1),
 
   -- GERENTES
   ('16370290102', '160949410', 'Yudi Azevedo', 'azvd@empjunior.com', 1),
