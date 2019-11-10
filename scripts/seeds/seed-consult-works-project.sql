@@ -31,6 +31,18 @@ VALUES
   --- Telemetria
   ('05266610190', 9), -- Todos estão em projeto atualemnte
   ('05266610170', 9),
-  ('03268615110', 9)
+  ('03268615110', 9),
+  -- RiHappy
+  ('04369015140', 10), -- deligados/afastados
+  ('01268615113', 10),
+  -- BitContainer
+  ('04266610108', 11), -- estão atualmente em proj
+  ('04266610198', 11),
+  -- Cortina
+  ('01268615111', 12), -- estão atualmente em proj
+  ('04266010178', 12)
+
+
+
   
 ;
