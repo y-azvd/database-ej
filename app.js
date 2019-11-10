@@ -89,23 +89,16 @@ app.get('/projects/late', async (request, response) => {
 })
 
 
-app.get('/members-emails', async (request, response) => {
+app.get('/members/email', async (request, response) => {
   const results = await db.query(
     `
     SELECT 
-      "member_id", 
+      "cpf", 
       "name",
-      "email",
-      
-      "status"."name" AS "status"
+      "email"
     
     FROM
       "members"
-        JOIN
-      "status"
-    
-    ON 
-      "members"."status_id" = "status"."status"."id"
     ;
     `
   )
