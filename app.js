@@ -80,7 +80,7 @@ app.get('/projects/late', async (request, response) => {
     WHERE
       "delivery_at" < "delivered_at"
         OR 
-      "delivery_at" > 
+      "delivery_at" > current_date
     ;
     `
   )
