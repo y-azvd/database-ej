@@ -30,6 +30,14 @@ VALUES
   ('04266610198', '141142480', 'Gabiel Fe', 'gab@empjunior.com', 2),
   ('05266610190', '151142480', 'Maria Leão', 'maria@empjunior.com', 1),
   ('05266610170', '131142481', 'Lemos', 'lemos@empjunior.com', 3),
-  ('04268615110', '150192482', 'Luzia Mozão', 'lulu@empjunior.com', 1),
+  ('03268615110', '151192482', 'Guilherme Fastru', 'guifas@empjunior.com', 1),
+  ('03268615113', '151192480', 'Frenatinho', 'fren@empjunior.com', 1),
+  ('03268615190', '151192410', 'Fernanda', 'fern@empjunior.com', 1),
+  ('03268615191', '141192310', 'Leonardo', 'leo@empjunior.com', 1),
+  ('01268615113', '141192480', 'Karou Fartory', 'karou@empjunior.com', 2),
+  ('01268615111', '141092480', 'Mary Clear', 'mary@empjunior.com', 1),
+  ('03918615110', '451192482', 'Richard Guito', 'guito@empjunior.com', 1),
+  ('03918615119', '351192482', 'Arthur', 'art@empjunior.com', 1),
+  ('03918615123', '123192482', 'Sabraina', 'sabr@empjunior.com', 1),
   ('04366610109', '141142580', 'Gui Caetano', 'gui@empjunior.com', 2)
 ;
