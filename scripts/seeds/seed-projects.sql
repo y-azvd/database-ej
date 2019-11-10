@@ -39,15 +39,6 @@ VALUES
     5, 180000, 180000, 7
   ),
   (
-    5,
-    'Fada do Dente', 
-    '2019-03-01', 
-    '2019-06-01', 
-    '2019-05-28', 
-    'https://en.wikipedia.org/wiki/Database', 
-    3, 40000, 40000, 6
-  ),
-  (
     6,
     'Bambu Quântico', 
     '2017-01-20', 
@@ -85,6 +76,15 @@ VALUES
     2, 0, 0, 11
   ),
   (
+    5,
+    'Fada do Dente', 
+    '2019-03-01', 
+    '2019-06-01', 
+    '2019-05-28', 
+    'https://en.wikipedia.org/wiki/Database', 
+    3, 40000, 40000, 6
+  ),
+  (
     10,
     'RiHappy', 
     '2019-01-10', 
@@ -101,5 +101,14 @@ VALUES
     '2019-02-05', 
     'https://en.wikipedia.org/wiki/Database', 
     4, 30000, 30000, 5
+  ),
+  (
+    12,
+    'Cortina', 
+    '2017-01-10', 
+    '2018-02-05', 
+    '2019-02-05', 
+    'https://en.wikipedia.org/wiki/Database', 
+    3, 100000, 100000, 3
   )
 ;
