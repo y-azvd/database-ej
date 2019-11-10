@@ -8,7 +8,9 @@
 </h5>
 
 ### Para começar
-1. baixe o reposítório
+0. baixe [Node.js](https://nodejs.org/en/)
+
+1. baixe o repositório
 
 2. cheque as configurações de autenticação (usuário:senha) da conexão
 com o banco de dados em `./database/index.js` e certifique-se que o servidor postgres está rodando
