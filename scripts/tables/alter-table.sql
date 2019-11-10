@@ -6,7 +6,7 @@ ALTER TABLE "members"
 
 ALTER TABLE "projects"
   ADD CONSTRAINT projects_client_id_fkey FOREIGN KEY("client_id") REFERENCES "clients"("client_id");
-  -- ADD CONSTRAINT projects_manager_id_fkey FOREIGN KEY("manager_id") REFERENCES "status"("status_id");
+  -- ADD CONSTRAINT projects_manager_id_fkey FOREIGN KEY("manager_id") REFERENCES "members"("members_id");
 
 
 ALTER TABLE "member_role_semester"
