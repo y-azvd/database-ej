@@ -93,25 +93,43 @@ app.get('/members-emails', async (request, response) => {
   const results = await db.query(
     `
     SELECT 
-      "member_id", 
+      "cpf", 
       "name",
       "email",
       
-      "status"."name" AS "status"
     
     FROM
       "members"
-        JOIN
-      "status"
-    
-    ON 
-      "members"."status_id" = "status"."status"."id"
     ;
     `
   )
 
   return response.json(results.rows)
 })
+
+app.get('/members/status', async (request, response) => {
+  const results = await db.query(
+    `
+    SELECT 
+      "members"."name" AS "member_name",
+      "status"."name" AS "status"
+
+    FROM
+      "members"
+        JOIN
+      "status"
+    ON 
+      "members"."status_id" = "status"."status_id"
+    ;
+
+    `
+
+    )
+
+  return response.json(results.rows);
+
+  });
+
 
 
 

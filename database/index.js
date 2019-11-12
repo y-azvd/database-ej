@@ -1,6 +1,6 @@
 const { Pool } = require('pg')
 
-const connectionString = 'postgres://postgres:docker@localhost:5432/mecajun'
+const connectionString = 'postgres://postgres:postgres@localhost:5432/mecajun'
 
 const pool = new Pool({ connectionString });
 
