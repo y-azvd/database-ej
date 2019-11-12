@@ -18,15 +18,17 @@ const db = require('../../database')
  * deve-se adicionar, na ordem adequada, esse 
  * nome no seguinte array.
  */
-
 const sqlScripts = [
   'seed-status.sql',
   'seed-clients.sql',
   'seed-client-phones.sql',
-  'seed-projects.sql',
   'seed-members.sql',
-  'seed-roles.sql',
   'seed-directorships.sql',
+  'seed-managers.sql',
+  'seed-projects.sql',
+  'seed-roles.sql',
+  'seed-directors.sql',
+  'seed-consult-works-project.sql',
 ]
 
 seedTables()

@@ -80,7 +80,7 @@ app.get('/projects/late', async (request, response) => {
     WHERE
       "delivery_at" < "delivered_at"
         OR 
-      "delivery_at" > 
+      "delivery_at" > current_date
     ;
     `
   )
@@ -89,14 +89,14 @@ app.get('/projects/late', async (request, response) => {
 })
 
 
-app.get('/members-emails', async (request, response) => {
+app.get('/members/email', async (request, response) => {
   const results = await db.query(
     `
     SELECT 
       "cpf", 
       "name",
+<<<<<<< HEAD
       "email",
-      
     
     FROM
       "members"
