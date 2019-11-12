@@ -95,7 +95,6 @@ app.get('/members/email', async (request, response) => {
     SELECT 
       "cpf", 
       "name",
-<<<<<<< HEAD
       "email",
     
     FROM
