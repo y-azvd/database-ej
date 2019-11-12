@@ -2,11 +2,11 @@ DELETE FROM "directorships"; -- apagar todas as linha da tabela
                        -- esse comando também reseta a contagem da coluna id
 
 INSERT INTO "directorships" (
-  "name"
+  "directorship_id", "name"
 )
 VALUES 
-  ('Negócios'),
-  ('Operações'),
-  ('Marketing'),
-  ('Inovação')
+  (1, 'Negócios'),
+  (2, 'Operações'),
+  (3, 'Marketing'),
+  (4, 'Inovação')
 ;

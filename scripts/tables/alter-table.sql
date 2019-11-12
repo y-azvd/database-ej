@@ -5,8 +5,8 @@ ALTER TABLE "members"
 
 
 ALTER TABLE "projects"
-  ADD CONSTRAINT projects_client_id_fkey FOREIGN KEY("client_id") REFERENCES "clients"("client_id");
-  -- ADD CONSTRAINT projects_manager_id_fkey FOREIGN KEY("manager_id") REFERENCES "members"("members_id");
+  ADD CONSTRAINT projects_client_id_fkey FOREIGN KEY("client_id") REFERENCES "clients"("client_id"),
+  ADD CONSTRAINT projects_manager_cpf_fkey FOREIGN KEY("manager_cpf") REFERENCES "managers"("cpf");
 
 
 ALTER TABLE "member_role_semester"
@@ -20,7 +20,8 @@ ALTER TABLE "consultant_works_project"
 
 
 ALTER TABLE "client_phones"
-  ADD CONSTRAINT client_phones_client_id_fkey FOREIGN KEY ("client_id") REFERENCES "clients"("client_id");
+  ADD CONSTRAINT client_phones_client_id_fkey FOREIGN KEY ("client_id") REFERENCES "clients"("client_id")
+    ON DELETE CASCADE;
 
 
 ALTER TABLE "parcels"
@@ -39,7 +40,8 @@ ALTER TABLE "consultants"
 
 ALTER TABLE "managers"
   ADD CONSTRAINT managers_cpf_fkey             FOREIGN KEY ("cpf")             REFERENCES "members"("cpf"),
-  ADD CONSTRAINT managers_directorship_id_fkey FOREIGN KEY ("directorship_id") REFERENCES "directorships"("directorship_id");
+  ADD CONSTRAINT managers_directorship_id_fkey FOREIGN KEY ("directorship_id") REFERENCES "directorships"("directorship_id")
+    ON DELETE CASCADE;
 
 
 ALTER TABLE "directors"

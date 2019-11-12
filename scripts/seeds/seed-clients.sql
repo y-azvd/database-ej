@@ -1,7 +1,8 @@
-DELETE FROM "clients"; -- apagar todas as linha da tabela
+DELETE FROM "clients" CASCADE; -- apagar todas as linha da tabela
                        -- esse comando também reseta a contagem da coluna id
 
-INSERT INTO "clients" ("client_id", "name", "email")
+INSERT INTO "clients"
+  ("client_id", "name", "email")
 VALUES 
   ('1', 'Eduardo Ferreira', 'dudufer@gmail.com'),
   ('2', 'Fernando', 'fernando@gmail.com'),

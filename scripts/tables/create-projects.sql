@@ -13,5 +13,6 @@ CREATE TABLE "projects"(
   "nps" INTEGER,
 
   -- chaves estrangeiras
-  "client_id" INTEGER NOT NULL
+  "client_id" INTEGER NOT NULL,
+  "manager_cpf" CHAR (11) NOT NULL
 );
