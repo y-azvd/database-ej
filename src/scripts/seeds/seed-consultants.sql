@@ -1,25 +1,41 @@
 DELETE FROM "consultants"; -- apagar todas as linha da tabela
 
-INSERT INTO "consultants" ("cpf", "directorship_id")
-VALUES
-	('04266610108', 1),
-	('04266610198', 1),
-	('04266010198', 2),
-	('04266010178', 2),
-	('05266610190', 1),
-	('05266610170', 1),
-	('03268615110', 3),
-	('03268615190', 2),
-	('03268615191', 2),
-	('01268615111', 2),
-	('03918615110', 2),
-	('03918615119', 3),
-	('03918615123', 1),
-	('03268615113', 2),
-	('04266010179', 1),
-	('04369015140', 3),
-	('01268615113', 3),
-	('04366610109', 2),
-	('04366610110', 2),
-	('04266610197', 1)
+DO $$
+	declare id_negocios INTEGER;
+	declare id_marketing INTEGER;
+	declare id_operacoes INTEGER;
+	declare id_inovacao INTEGER;
+
+BEGIN
+	SELECT "directorship_id" from "directorships" WHERE "name" = 'Negócios'
+	INTO id_negocios;
+	SELECT "directorship_id" from "directorships" WHERE "name" = 'Marketing'
+	INTO id_marketing;
+	SELECT "directorship_id" from "directorships" WHERE "name" = 'Operações'
+	INTO id_operacoes;
+	
+	INSERT INTO "consultants" ("cpf", "directorship_id")
+	VALUES
+	('04266610108', id_negocios),
+	('04266610198', id_negocios),
+	('04266010198', id_marketing),
+	('04266010178', id_marketing),
+	('05266610190', id_negocios),
+	('05266610170', id_negocios),
+	('03268615110', id_operacoes),
+	('03268615190', id_operacoes),
+	('03268615191', id_operacoes),
+	('01268615111', id_operacoes),
+	('03918615110', id_operacoes),
+	('03918615119', id_operacoes),
+	('03918615123', id_negocios),
+	('03268615113', id_operacoes),
+	('04266010179', id_negocios),
+	('04369015140', id_operacoes),
+	('01268615113', id_operacoes),
+	('04366610109', id_operacoes),
+	('04366610110', id_operacoes),
+	('04266610197', id_negocios)
 ;
+END $$;
+

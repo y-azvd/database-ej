@@ -6,9 +6,7 @@ app.use(express.json())
 
 const ClientController = require('./controllers/ClientController')
 
-
 app.get('/clients', ClientController.index)
-
 
 app.post('/clients', ClientController.create)
 

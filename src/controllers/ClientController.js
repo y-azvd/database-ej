@@ -24,8 +24,14 @@ const ClientController = {
   },
 
   async create(request, response) {
-    console.log(request.body.email)    
-    return response.json(request.body)
+    const client = request.body
+    const results = await db.query(
+      `INSERT INTO "clients"("name", "email")
+      VALUES ($1, $2);`, 
+      [client.name, client.email]
+    )
+
+    return response.json(results)
   }
 }
 
