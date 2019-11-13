@@ -113,7 +113,7 @@ app.get('/members/email', async (request, response) => {
     SELECT 
       "cpf", 
       "name",
-      "email"
+      "email",
     
     FROM
       "members"
@@ -123,6 +123,30 @@ app.get('/members/email', async (request, response) => {
 
   return response.json(results.rows)
 })
+
+app.get('/members/status', async (request, response) => {
+  const results = await db.query(
+    `
+    SELECT 
+      "members"."name" AS "member_name",
+      "status"."name" AS "status"
+
+    FROM
+      "members"
+        JOIN
+      "status"
+    ON 
+      "members"."status_id" = "status"."status_id"
+    ;
+
+    `
+
+    )
+
+  return response.json(results.rows);
+
+  });
+
 
 
 app.get('/members/directorships', async (request, response) => {

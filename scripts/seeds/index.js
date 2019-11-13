@@ -29,6 +29,7 @@ const sqlScripts = [
   'seed-roles.sql',
   'seed-directors.sql',
   'seed-consult-works-project.sql',
+  'seed-consultants.sql',
 ]
 
 seedTables()
