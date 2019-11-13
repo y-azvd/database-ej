@@ -4,6 +4,7 @@ const db = require('./database')
 
 const app = express()
 
+
 app.get('/', (request, response) => {
   return response.send('go to /clients')
 })
@@ -145,37 +146,34 @@ app.get('/members/status', async (request, response) => {
 
   return response.json(results.rows);
 
-  });
-
+});
 
 
 app.get('/members/directorships', async (request, response) => {
-  // const results = await db.query(
-  //   `
-  //   SELECT 
-  //     members."name" AS member_name,
-  //     members.*, 
-  //     directorships.*
-
-  //   FROM
-  //     "members"
-  //       JOIN
-  //     SELECT 
-  //   ;
-  //   `
-  // )
-
   const results = await db.query(
     `
-    SELECT 
-      *
-    FROM
-      consultants
-        INNER JOIN
-      directorships
-    
-      ON 
-        consultants.directorship_id = directorships.directorship_id
+    SELECT
+      "members"."name" AS "member_name",
+      "direc_name"
+    FROM 
+      "members"
+        INNER JOIN 
+      (
+        SELECT 
+        "consultants"."cpf",
+        "directorships"."name" AS "direc_name"
+        
+        FROM
+          "consultants"
+            INNER JOIN
+          directorships
+
+        ON 
+          "consultants"."directorship_id" = "directorships"."directorship_id"
+      ) AS "direcs_and_cpfs" 
+
+    ON
+      "members"."cpf" = "direcs_and_cpfs"."cpf"
     ;
     `
   )

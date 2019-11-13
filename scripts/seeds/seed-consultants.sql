@@ -2,7 +2,7 @@ DELETE FROM "consultants"; -- apagar todas as linha da tabela
 
 INSERT INTO "consultants" ("cpf", "directorship_id")
 VALUES
-  	('04266610108', 1),
+	('04266610108', 1),
 	('04266610198', 1),
 	('04266010198', 2),
 	('04266010178', 2),
