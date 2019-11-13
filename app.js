@@ -64,6 +64,33 @@ app.get('/projects', async (request, response) => {
   return response.json(results.rows)
 })
 
+app.get('/projects/:id/members', async (request, response) => {
+  const results = await db.query(
+    `
+    SELECT 
+      "members"."name",
+      "members"."cpf"
+        
+    FROM 
+      "projects"
+        INNER JOIN 
+      "consultant_works_project" 
+      ON 
+        "projects"."project_id" = "consultant_works_project"."project_id"
+      
+        INNER JOIN 
+      "members" 
+      ON 
+        "consultant_works_project"."cpf" = "members"."cpf"
+    WHERE
+      "projects"."project_id" = ${request.params.id} 
+      ; 
+    `
+  )
+
+  return response.json(results.rows)
+})
+
 app.get('/projects/expensive', async (request, response) => {
   const results = await db.query(
     `
