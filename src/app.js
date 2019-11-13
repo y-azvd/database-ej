@@ -1,41 +1,20 @@
 const express = require('express')
 
-const db = require('./database')
 
 const app = express()
 
+const ClientController = require('./controllers/ClientController')
 
 app.get('/', (request, response) => {
   return response.send('go to /clients')
 })
 
 
-app.get('/clients', async (request, response) => {
-  const results =  await db.query('SELECT * FROM clients LIMIT 10;')
-  return response.json(results.rows)
-})
+app.get('/clients', ClientController.index)
 
 
-app.get('/clients/phones', async (request, response) => {
-  const results = await db.query(
-  `
-    SELECT
-      "phone",
-      "clients"."name"
-    
-    FROM
-      "client_phones"
-        JOIN
-      "clients"
-    
-    ON
-      "client_phones"."client_id" = "clients"."client_id"
-    ;
-  `
-  )
 
-  return response.json(results.rows)
-})
+app.get('/clients/phones', ClientController.clientPhones)
 
 
 app.get('/projects', async (request, response) => {
