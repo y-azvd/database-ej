@@ -7,6 +7,10 @@
   Trabalho da disciplina Banco de Dados. Banco de dados para uma empresa júnior.
 </h5>
 
+#### Quem fez? | Autores:
+[Edmundo Ribeiro](https://github.com/Edmundo-Ribeiro) | [Guilherme Castro]() | [Ricardo Ito](https://github.com/Hidekon) | [Yudi Yamane](https://github.com/yudi-azvd)
+
+
 ### Para começar
 0. baixe [Node.js](https://nodejs.org/en/)
 
