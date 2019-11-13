@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "nodemon app.js",
-    "create-tables": "node scripts/tables/index.js",
-    "seed-tables": "node scripts/seeds/index.js",
+    "watch": "nodemon src/app.js",
+    "create-tables": "node src/scripts/tables/index.js",
+    "seed-tables": "node src/scripts/seeds/index.js",
     "populate-db": "npm run create-tables && npm run seed-tables"
   },
   "repository": {
