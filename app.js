@@ -10,14 +10,36 @@ app.get('/', (request, response) => {
 
 
 app.get('/clients', async (request, response) => {
-  const results = await db.query('SELECT * FROM clients LIMIT 10;')
+  const results =  await db.query('SELECT * FROM clients LIMIT 10;')
+  return response.json(results.rows)
+})
+
+
+app.get('/clients/phones', async (request, response) => {
+  const results = await db.query(
+  `
+    SELECT
+      "phone",
+      "clients"."name"
+    
+    FROM
+      "client_phones"
+        JOIN
+      "clients"
+    
+    ON
+      "client_phones"."client_id" = "clients"."client_id"
+    ;
+  `
+  )
+
   return response.json(results.rows)
 })
 
 
 app.get('/projects', async (request, response) => {
   const results = await db.query(
-    sql`
+    `
     SELECT
       "projects"."project_id",
       "projects"."name",
@@ -38,10 +60,6 @@ app.get('/projects', async (request, response) => {
     `
   )
 
-  console.log()
-  const str = JSON.stringify(results.rows)
-  const obj = JSON.parse(str)
-  console.log(obj)
   return response.json(results.rows)
 })
 
@@ -106,6 +124,40 @@ app.get('/members/email', async (request, response) => {
   return response.json(results.rows)
 })
 
+
+app.get('/members/directorships', async (request, response) => {
+  // const results = await db.query(
+  //   `
+  //   SELECT 
+  //     members."name" AS member_name,
+  //     members.*, 
+  //     directorships.*
+
+  //   FROM
+  //     "members"
+  //       JOIN
+  //     SELECT 
+  //   ;
+  //   `
+  // )
+
+  const results = await db.query(
+    `
+    SELECT 
+      *
+    FROM
+      consultants
+        INNER JOIN
+      directorships
+    
+      ON 
+        consultants.directorship_id = directorships.directorship_id
+    ;
+    `
+  )
+
+  return response.json(results.rows)
+})
 
 
 app.listen(3000, () => {
