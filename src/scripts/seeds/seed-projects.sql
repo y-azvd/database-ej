@@ -1,12 +1,12 @@
 DELETE FROM "projects";
 
 INSERT INTO "projects"(
-  "project_id", "name", "started_at", "delivery_at", "delivered_at", "link_drive", "difficulty", "revenue", "price", "client_id",
+  "name", "started_at", "delivery_at", "delivered_at", "link_drive", "difficulty", "revenue", "price", "client_id",
   "manager_cpf"
 )
 VALUES
   (
-    1,
+    -- 1,
     'Tá Soda', 
     '2019-07-06', 
     null, 
@@ -16,7 +16,7 @@ VALUES
     '16370290102'
   ),
   (
-    2,
+    -- 2,
     'Team Builder', 
     '2018-06-06', 
     null, 
@@ -26,7 +26,7 @@ VALUES
     '16370290102'
   ),
   (
-    3,
+    -- 3,
     'TechPet', 
     '2018-06-06', 
     null, 
@@ -36,7 +36,7 @@ VALUES
     '16370290102'
   ),
   (
-    4,
+    -- 4,
     'Dionísio', 
     '2019-09-20', 
     null, 
@@ -46,7 +46,7 @@ VALUES
     '16370290102'
   ),
   (
-    6,
+    -- 6,
     'Bambu Quântico', 
     '2017-01-20', 
     null, 
@@ -56,7 +56,7 @@ VALUES
     '16370290102'
   ),
   (
-    7,
+    -- 7,
     'Dona Florina', 
     '2019-04-20', 
     null, 
@@ -66,7 +66,7 @@ VALUES
     '16370290102'
   ),
   (
-    8,
+    -- 8,
     'Silo', 
     '2019-07-20', 
     null, 
@@ -77,7 +77,7 @@ VALUES
   ),
   (
 
-    9,
+   --  9,
     'Telemetria', 
     '2019-03-10', 
     '2019-05-28', 
@@ -87,7 +87,7 @@ VALUES
     '16370290102'
   ),
   (
-    5,
+    -- 5,
     'Fada do Dente', 
     '2019-03-01', 
     '2019-06-01', 
@@ -97,7 +97,7 @@ VALUES
     '16370290102'
   ),
   (
-    10,
+    -- 10,
     'RiHappy', 
     '2019-01-10', 
     '2019-02-05', 
@@ -107,7 +107,7 @@ VALUES
     '16370290102'
   ),
   (
-    11,
+    -- 11,
     'BitContainer', 
     '2017-01-10', 
     '2018-02-05', 
@@ -117,7 +117,7 @@ VALUES
     '16370290102'
   ),
   (
-    12,
+    -- 12,
     'Cortina', 
     '2017-01-10', 
     '2018-02-05', 
