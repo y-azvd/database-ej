@@ -8,7 +8,7 @@
 </h5>
 
 #### Quem fez? | Autores:
-[Edmundo Ribeiro](https://github.com/Edmundo-Ribeiro) | [Guilherme Castro]() | [Ricardo Ito](https://github.com/Hidekon) | [Yudi Yamane](https://github.com/yudi-azvd)
+[Edmundo Ribeiro](https://github.com/Edmundo-Ribeiro) | [Guilherme Castro](https://github.com/GuilhermeCstr) | [Ricardo Ito](https://github.com/Hidekon) | [Yudi Yamane](https://github.com/yudi-azvd)
 
 
 ### Para começar
