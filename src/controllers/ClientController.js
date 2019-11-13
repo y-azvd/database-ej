@@ -1,17 +1,13 @@
 const db = require('../database')
 
 const ClientController = {
-  async index (request, response) {
-    const results =  await db.query('SELECT * FROM clients LIMIT 10;')
-    return response.json(results.rows)
-  },
-
-  async clientPhones(request, response) {
+  async index(request, response) {
     const results = await db.query(
       `
-        SELECT
-          "phone",
-          "clients"."name"
+      SELECT
+        "clients"."name",
+        "clients"."email",
+        "phone"
         
         FROM
           "client_phones"
@@ -23,8 +19,13 @@ const ClientController = {
         ;
       `
       )
-    
-      return response.json(results.rows)
+
+    return response.json(results.rows)
+  },
+
+  async create(request, response) {
+    console.log(request.body.email)    
+    return response.json(request.body)
   }
 }
 

@@ -1,20 +1,16 @@
 const express = require('express')
 
-
 const app = express()
 
-const ClientController = require('./controllers/ClientController')
+app.use(express.json())
 
-app.get('/', (request, response) => {
-  return response.send('go to /clients')
-})
+const ClientController = require('./controllers/ClientController')
 
 
 app.get('/clients', ClientController.index)
 
 
-
-app.get('/clients/phones', ClientController.clientPhones)
+app.post('/clients', ClientController.create)
 
 
 app.get('/projects', async (request, response) => {
@@ -145,9 +141,7 @@ app.get('/members/status', async (request, response) => {
     ON 
       "members"."status_id" = "status"."status_id"
     ;
-
     `
-
     )
 
   return response.json(results.rows);
