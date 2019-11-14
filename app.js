@@ -130,6 +130,17 @@ app.get('/members/status', async (request, response) => {
   });
 
 
+app.get('/members/consultants', async (request, response) => {
+  const results = await db.query(
+    
+
+
+    )
+
+  return response.json(results.rows);
+
+  });
+
 
 
 app.listen(3000, () => {
