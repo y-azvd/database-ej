@@ -10,7 +10,6 @@ app.get('/clients', ClientController.index)
 
 app.post('/clients', ClientController.create)
 
-
 app.get('/projects', async (request, response) => {
   const results = await db.query(
     `
