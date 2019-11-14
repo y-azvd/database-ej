@@ -1,6 +1,5 @@
 -- apagar todas as linha da tabela
 -- esse comando também reseta a contagem da coluna id
-
 DELETE FROM "client_phones";
 
 INSERT INTO "client_phones"("client_id", "phone")

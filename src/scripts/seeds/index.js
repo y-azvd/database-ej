@@ -52,6 +52,7 @@ async function seedTables() {
     const query = fs
       .readFileSync(`${__dirname}/${script}`)
       .toString()
+    console.log(script)
     await db.query(query)
   }
 

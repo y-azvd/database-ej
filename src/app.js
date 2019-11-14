@@ -1,23 +1,23 @@
+require("dotenv").config()
 const express = require('express')
-
-const db = require('./database')
 
 const app = express()
 
-app.get('/', (request, response) => {
-  return response.send('go to /clients')
-})
+app.use(express.json())
 
+const ClientController = require('./controllers/ClientController')
+const MemberController = require('./controllers/MemberController')
 
-app.get('/clients', async (request, response) => {
-  const results = await db.query('SELECT * FROM clients LIMIT 10;')
-  return response.json(results.rows)
-})
+app.get('/clients', ClientController.index)
+
+app.post('/clients', ClientController.create)
+
+app.get('/members', MemberController.index)
 
 
 app.get('/projects', async (request, response) => {
   const results = await db.query(
-    sql`
+    `
     SELECT
       "projects"."project_id",
       "projects"."name",
@@ -38,10 +38,33 @@ app.get('/projects', async (request, response) => {
     `
   )
 
-  console.log()
-  const str = JSON.stringify(results.rows)
-  const obj = JSON.parse(str)
-  console.log(obj)
+  return response.json(results.rows)
+})
+
+app.get('/projects/:id/members', async (request, response) => {
+  const results = await db.query(
+    `
+    SELECT 
+      "members"."name",
+      "members"."cpf"
+        
+    FROM 
+      "projects"
+        INNER JOIN 
+      "consultant_works_project" 
+      ON 
+        "projects"."project_id" = "consultant_works_project"."project_id"
+      
+        INNER JOIN 
+      "members" 
+      ON 
+        "consultant_works_project"."cpf" = "members"."cpf"
+    WHERE
+      "projects"."project_id" = ${request.params.id} 
+      ; 
+    `
+  )
+
   return response.json(results.rows)
 })
 
@@ -120,14 +143,12 @@ app.get('/members/status', async (request, response) => {
     ON 
       "members"."status_id" = "status"."status_id"
     ;
-
     `
-
     )
 
   return response.json(results.rows);
 
-  });
+});
 
 
 app.get('/members/consultants', async (request, response) => {
@@ -141,6 +162,37 @@ app.get('/members/consultants', async (request, response) => {
 
   });
 
+app.get('/members/directorships', async (request, response) => {
+  const results = await db.query(
+    `
+    SELECT
+      "members"."name" AS "member_name",
+      "direc_name"
+    FROM 
+      "members"
+        INNER JOIN 
+      (
+        SELECT 
+        "consultants"."cpf",
+        "directorships"."name" AS "direc_name"
+        
+        FROM
+          "consultants"
+            INNER JOIN
+          directorships
+
+        ON 
+          "consultants"."directorship_id" = "directorships"."directorship_id"
+      ) AS "direcs_and_cpfs" 
+
+    ON
+      "members"."cpf" = "direcs_and_cpfs"."cpf"
+    ;
+    `
+  )
+
+  return response.json(results.rows)
+})
 
 
 app.listen(3000, () => {

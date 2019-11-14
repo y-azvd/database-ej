@@ -20,6 +20,8 @@ async function create() {
 
 
 async function createTables() {
+  await db.query(`select 'drop table if exists "' || tablename || '" cascade;' from pg_tables;`)
+
   console.log('creating tables')
   /**
    * Vai ler todos os arquivos nesse 
