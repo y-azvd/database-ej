@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express')
 
 const app = express()
@@ -106,7 +108,6 @@ app.get('/projects/late', async (request, response) => {
   return response.json(results.rows)
 })
 
-
 app.get('/members/email', async (request, response) => {
   const results = await db.query(
     `
@@ -145,7 +146,6 @@ app.get('/members/status', async (request, response) => {
 
 });
 
-
 app.get('/members/directorships', async (request, response) => {
   const results = await db.query(
     `
@@ -177,7 +177,6 @@ app.get('/members/directorships', async (request, response) => {
 
   return response.json(results.rows)
 })
-
 
 app.listen(3000, () => {
   console.log('app listening on PORT 3000')

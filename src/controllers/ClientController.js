@@ -54,5 +54,4 @@ const ClientController = {
   }
 }
 
-
 module.exports = ClientController
