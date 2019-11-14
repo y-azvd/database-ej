@@ -13,6 +13,7 @@ app.get('/clients', ClientController.index)
 app.post('/clients', ClientController.create)
 
 app.get('/members', MemberController.index)
+app.post('/members', MemberController.create)
 
 
 app.get('/projects', async (request, response) => {

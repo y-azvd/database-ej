@@ -31,16 +31,32 @@ const MemberController = {
   async create(request, response) {
     const member = request.body
 
+    const results_status_id = await db.query(
+      `SELECT 
+        "status"."status_id"
+        FROM
+        "status"
+        WHERE
+        "status"."name"= $1
+
+      `,[member.status]
+    )
+    const status_id = results_status_id.rows[0].status_id
+    console.log(status_id)
+
     var results = await db.query(
       `INSERT INTO "members" ("cpf", 
       						  "name",
       						  "registration",
+                    "email",
       						  "birth_date",
-      						  "join_date")
+      						  "join_date",
+                    "status_id")
 
-       VALUES ($1, $2,  $3, $4, $5, $6)`, 
+       VALUES ($1, $2,  $3, $4, $5, $6, $7)`, 
       [member.cpf, member.name, member.registration,
-       member.email, member.birth_date, member.join_date]
+       member.email, member.birth_date, member.join_date,
+       status_id]
     )
 
   
