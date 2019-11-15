@@ -12,7 +12,7 @@
 
 
 ### Para começar
-0. baixe [Node.js](https://nodejs.org/en/)
+0. baixe [Node.js](https://nodejs.org/en/).
 
 1. baixe o repositório e execute `npm install` no terminal no diretório raíz do projeto.
 
@@ -22,7 +22,7 @@ PSQL_USERNAME=meu_username
 PSQL_PASSWORD=minha_senha
 ```
 O que vem depois dos sinais de devem ser o username e a senha definidos no momento 
-em que foi instalado o PostgreSQL. Além disso, certifique-se que o servidor postgres 
+em que foi instalado o [Postgres](https://www.postgresql.org/download/). Além disso, certifique-se que o servidor postgres 
 está rodando.
 
 3. abra o terminal na pasta raíz e execute:
