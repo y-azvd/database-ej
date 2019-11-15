@@ -55,21 +55,6 @@ app.get('/members/status', async (request, response) => {
 
 });
 
-<<<<<<< HEAD
-=======
-
-app.get('/members/consultants', async (request, response) => {
-  const results = await db.query(
-    
-
-
-    )
-
-  return response.json(results.rows);
-
-  });
-
->>>>>>> b677a1d74a05d30a5f732728b52a45a5b74578ff
 app.get('/members/directorships', async (request, response) => {
   const results = await db.query(
     `
