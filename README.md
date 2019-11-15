@@ -14,10 +14,16 @@
 ### Para começar
 0. baixe [Node.js](https://nodejs.org/en/)
 
-1. baixe o repositório
+1. baixe o repositório e execute `npm install` no terminal no diretório raíz do projeto.
 
-2. cheque as configurações de autenticação (usuário:senha) da conexão
-com o banco de dados em `./database/index.js` e certifique-se que o servidor postgres está rodando
+2. crie um arquivo `.env` com o seguinte conteúdo: 
+```
+PSQL_USERNAME=meu_username
+PSQL_PASSWORD=minha_senha
+```
+O que vem depois dos sinais de devem ser o username e a senha definidos no momento 
+em que foi instalado o PostgreSQL. Além disso, certifique-se que o servidor postgres 
+está rodando.
 
 3. abra o terminal na pasta raíz e execute:
 ```
@@ -28,5 +34,6 @@ e depois
 npm run watch
 ```
 
-4. acesse o endereço `http://localhost:3000/clients` pelo navegador de sua preferência.
+4. acesse o endereço <http://localhost:3000/clients> pelo navegador de sua preferência. 
 
+5. mais rotas podem ser testadas e acessadas utlilizando o [Isomnia](https://insomnia.rest/).
