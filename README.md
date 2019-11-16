@@ -4,7 +4,7 @@
 </h1>
 
 <h5 align="center">
-  Trabalho da disciplina Banco de Dados. Banco de dados para uma empresa júnior.
+  Trabalho desenvolvido durante a disciplina Banco de Dados da Universidade de Brasília. Banco de dados para uma empresa júnior.
 </h5>
 
 #### Quem fez? | Autores:
