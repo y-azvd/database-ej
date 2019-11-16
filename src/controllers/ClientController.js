@@ -123,6 +123,10 @@ const ClientController = {
      * Ainda não sei consertar isso.
      */
     return response.json(client)
+  },
+
+  async delete(request, response) {
+    return response.json({ok: 'lets delete it'})
   }
 }
 

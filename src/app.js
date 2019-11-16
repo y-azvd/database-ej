@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 const express = require('express')
 
 const app = express()
@@ -14,6 +12,8 @@ app.get('/clients', ClientController.index)
 app.post('/clients', ClientController.create)
 
 app.put('/clients/:id', ClientController.update)
+
+app.delete('/clients/:id', ClientController.delete)
 
 
 app.get('/members', MemberController.index)
