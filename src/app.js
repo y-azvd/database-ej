@@ -13,6 +13,9 @@ app.get('/clients', ClientController.index)
 
 app.post('/clients', ClientController.create)
 
+app.put('/clients/:id', ClientController.update)
+
+
 app.get('/members', MemberController.index)
 app.post('/members', MemberController.create)
 

@@ -51,6 +51,44 @@ const ClientController = {
     }
 
     return response.json(results)
+  },
+
+  async update(request, response) {
+    /**
+     * - checar se membro existe
+     * - checar se email já é utlizado
+     * - sobrescrever infos
+     * - apagar todos os telefones do cliente
+     * - escrever os novos
+     */
+    let results = await db.query(
+      `SELECT * FROM clients
+      WHERE client_id = '${request.params.id}'`
+    )
+    
+    if (!results.rows[0]) {
+      return response.status(404).json({error: 'Member not found'})
+    }
+
+    const client = results.rows[0]
+
+    console.log(client)
+    results = await db.query(
+      `SELECT email FROM clients
+      WHERE email = '${request.body.email}'`
+    )
+
+    // apagar telefones do cliente
+
+    if (results.rows[0]) {
+      return response.status(400).json({error: 'Email already in use'})
+    }
+
+    client.phones = results.rows.map(obj => obj.phone)
+    
+    console.log(results.rows)
+    
+    return response.json(client)
   }
 }
 
