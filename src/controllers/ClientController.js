@@ -126,7 +126,9 @@ const ClientController = {
   },
 
   async delete(request, response) {
-    return response.json({ok: 'lets delete it'})
+    const client_id = request.params.id
+
+    return response.json({ok: client_id})
   }
 }
 
