@@ -31,6 +31,22 @@ const MemberController = {
   async create(request, response) {
     const member = request.body
 
+    const cpf_in_use_response = await db.query(
+      `
+          SELECT 
+            "cpf"
+          FROM
+            "members"
+          WHERE 
+            "cpf"=$1
+
+      `,[member.cpf]
+    )
+
+    if(cpf_in_use_response.rows[0]){
+      return response.status(400).json({error: 'CPF already in use'})
+    }
+
     const results_status_id = await db.query(
       `SELECT 
         "status"."status_id"
@@ -42,7 +58,6 @@ const MemberController = {
       `,[member.status]
     )
     const status_id = results_status_id.rows[0].status_id
-    console.log(status_id)
 
     var results = await db.query(
       `INSERT INTO "members" ("cpf", 
@@ -61,8 +76,76 @@ const MemberController = {
 
   
       return response.json(results)
+  },
+
+  async update(request, response) {
+     const member = request.body
+
+     const result = await db.query(
+      `
+      SELECT
+      *
+      FROM
+        "members"
+      WHERE
+        "cpf"=$1
+      `,[member.cpf]
+     )
+
+
+     if(!result.rows[0]){
+        return response.status(404).json({error: 'Member not found'})
+     }
+
+     const cpf = result.rows[0].cpf
+
+     var q = "UPDATE members SET "
+     for( var prop in member){
+      if( member[prop] != null)
+        q += prop +" = '"+ member[prop]+"',"
+     }
+     q = q.slice(0,-1)
+     q += " WHERE cpf = '"+cpf+"'"
+
+     console.log(q)
+     await db.query(q)
+
+
+     return response.json({ok: 'true'})
+     
+  },
+
+  async delete (request, response) {
+     const cpf = request.params.cpf
+
+     const result = await db.query(
+      `
+      SELECT
+      *
+      FROM
+        "members"
+      WHERE
+        "cpf"='${cpf}'
+      `
+     )
+
+
+     if(!result.rows[0]){
+        return response.status(404).json({error: 'Member not found'})
+     }
+     
+     await db.query(
+      `
+      DELETE FROM
+      "members"
+      WHERE
+       "cpf"='${cpf}'
+      `
+      )
+
+    return response.json({ok: 'true'})
+
   }
 }
-
 
 module.exports = MemberController
