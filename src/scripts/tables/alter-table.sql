@@ -47,4 +47,3 @@ ALTER TABLE "managers"
 ALTER TABLE "directors"
   ADD CONSTRAINT directors_cpf_fkey             FOREIGN KEY ("cpf")             REFERENCES "members"("cpf"),
   ADD CONSTRAINT directors_directorship_id_fkey FOREIGN KEY ("directorship_id") REFERENCES "directorships"("directorship_id");
-
