@@ -128,9 +128,13 @@ const ClientController = {
   async delete(request, response) {
     const client_id = request.params.id
 
-    
+    const result = await db.query(
+      `DELETE FROM clients WHERE client_id=${client_id};`
+    )
 
-    return response.json({ok: client_id})
+    console.log(result)
+
+    return response.json({ok: 'deleted'})
   }
 }
 
