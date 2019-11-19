@@ -83,13 +83,8 @@ const MemberController = {
 
      const result = await db.query(
       `
-      SELECT
-      *
-      FROM
-        "members"
-      WHERE
-        "cpf"=$1
-      `,[member.cpf]
+      SELECT * FROM "members" WHERE"cpf"='${member.cpf}'
+      `
      )
 
 
@@ -107,7 +102,7 @@ const MemberController = {
      q = q.slice(0,-1)
      q += " WHERE cpf = '"+cpf+"'"
 
-     console.log(q)
+     // console.log(q)
      await db.query(q)
 
 
