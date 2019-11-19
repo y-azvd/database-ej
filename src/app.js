@@ -8,13 +8,9 @@ const ClientController = require('./controllers/ClientController')
 const MemberController = require('./controllers/MemberController')
 
 app.get('/clients', ClientController.index)
-
 app.post('/clients', ClientController.create)
-
 app.put('/clients/:id', ClientController.update)
-
 app.delete('/clients/:id', ClientController.delete)
-
 
 app.get('/members', MemberController.index)
 app.post('/members', MemberController.create)
