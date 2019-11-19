@@ -11,7 +11,7 @@ const ClientController = {
         
         FROM
           "client_phones"
-            JOIN
+            FULL OUTER JOIN
           "clients"
         
         ON
