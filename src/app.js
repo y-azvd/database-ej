@@ -6,6 +6,7 @@ app.use(express.json())
 
 const ClientController = require('./controllers/ClientController')
 const MemberController = require('./controllers/MemberController')
+const DirectorController = require('./controllers/DirectorController')
 
 app.get('/clients', ClientController.index)
 app.post('/clients', ClientController.create)
@@ -16,6 +17,9 @@ app.get('/members', MemberController.index)
 app.post('/members', MemberController.create)
 app.post('/members/update', MemberController.update)
 app.delete('/members/:cpf', MemberController.delete)
+
+app.get('/directors', DirectorController.index)
+app.post('/directors', DirectorController.create)
 
 
 app.listen(3000, () => {
