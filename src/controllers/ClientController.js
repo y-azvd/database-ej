@@ -13,7 +13,6 @@ const ClientController = {
           "client_phones"
             FULL OUTER JOIN
           "clients"
-        
         ON
           "client_phones"."client_id" = "clients"."client_id"
         ;
