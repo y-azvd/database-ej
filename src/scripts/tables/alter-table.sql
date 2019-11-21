@@ -5,7 +5,7 @@ ALTER TABLE "members"
 
 
 ALTER TABLE "projects"
-  ADD CONSTRAINT projects_client_id_fkey FOREIGN KEY("client_id") REFERENCES "clients"("client_id"),
+  ADD CONSTRAINT projects_client_id_fkey FOREIGN KEY("client_id") REFERENCES "clients"("client_id") ON DELETE SET NULL,
   ADD CONSTRAINT projects_manager_cpf_fkey FOREIGN KEY("manager_cpf") REFERENCES "managers"("cpf");
 
 
@@ -47,4 +47,3 @@ ALTER TABLE "managers"
 ALTER TABLE "directors"
   ADD CONSTRAINT directors_cpf_fkey             FOREIGN KEY ("cpf")             REFERENCES "members"("cpf"),
   ADD CONSTRAINT directors_directorship_id_fkey FOREIGN KEY ("directorship_id") REFERENCES "directorships"("directorship_id");
-
