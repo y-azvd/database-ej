@@ -38,9 +38,9 @@ const MemberController = {
           FROM
             "members"
           WHERE 
-            "cpf"=$1
+            "cpf"='${member.cpf}'
 
-      `,[member.cpf]
+      `
     )
 
     if(cpf_in_use_response.rows[0]){
@@ -53,20 +53,20 @@ const MemberController = {
         FROM
         "status"
         WHERE
-        "status"."name"= $1
+        "status"."name"= '${member.status}'
 
-      `,[member.status]
+      `
     )
     const status_id = results_status_id.rows[0].status_id
 
     var results = await db.query(
       `INSERT INTO "members" ("cpf", 
-      						  "name",
-      						  "registration",
-                    "email",
-      						  "birth_date",
-      						  "join_date",
-                    "status_id")
+        "name",
+        "registration",
+        "email",
+        "birth_date",
+        "join_date",
+        "status_id")
 
        VALUES ($1, $2,  $3, $4, $5, $6, $7)`, 
       [member.cpf, member.name, member.registration,
@@ -80,10 +80,11 @@ const MemberController = {
 
   async update(request, response) {
      const member = request.body
+     const cpf = request.params.cpf
 
      const result = await db.query(
       `
-      SELECT * FROM "members" WHERE"cpf"='${member.cpf}'
+      SELECT * FROM "members" WHERE"cpf"='${cpf}'
       `
      )
 
@@ -91,8 +92,6 @@ const MemberController = {
      if(!result.rows[0]){
         return response.status(404).json({error: 'Member not found'})
      }
-
-     const cpf = result.rows[0].cpf
 
      var q = "UPDATE members SET "
      for( var prop in member){

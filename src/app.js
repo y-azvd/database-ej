@@ -18,7 +18,7 @@ app.delete('/clients/:id', ClientController.delete)
 
 app.get('/members', MemberController.index)
 app.post('/members', MemberController.create)
-app.post('/members/update', MemberController.update)
+app.put('/members/:cpf', MemberController.update)
 app.delete('/members/:cpf', MemberController.delete)
 
 
