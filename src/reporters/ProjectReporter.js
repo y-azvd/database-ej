@@ -4,13 +4,14 @@ const ProjectReporter = {
   async getLate(request, response) {
     const results = await db.query(
       `SELECT 
-        "project_id", "name"
+        "project_id", "name", "delivery_at"
       FROM
         "projects"
       WHERE
         "delivery_at" < "delivered_at"
           OR 
-        "delivery_at" > current_date;`
+        "delivery_at" > current_date
+      ORDER BY "delivery_at"`
     )
   
     return response.json(results.rows)

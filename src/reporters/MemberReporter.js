@@ -10,12 +10,12 @@ const MemberReporter = {
         "members"
           INNER JOIN 
         "consultants"
-        ON
-          "members"."cpf" = "consultants"."cpf" 
+      ON
+        "members"."cpf" = "consultants"."cpf" 
           INNER JOIN
         "directorships"
-        ON
-          "consultants"."directorship_id" = "directorships"."directorship_id"
+      ON
+        "consultants"."directorship_id" = "directorships"."directorship_id"
       ORDER BY "directorships"."name", "members"."name";`
     )
   
