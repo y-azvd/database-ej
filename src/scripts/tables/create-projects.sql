@@ -7,7 +7,7 @@ CREATE TABLE "projects"(
   "delivery_at" DATE,
   "delivered_at"  DATE,
   "link_drive" TEXT NOT NULL,
-  "difficulty" INTEGER NOT NULL,
+  "difficulty" INTEGER NOT NULL CHECK (1 <= difficulty AND difficulty <= 5),
   "revenue" FLOAT(8) NOT NULL,
   "price" FLOAT(8) NOT NULL,
   "nps" INTEGER,
