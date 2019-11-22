@@ -11,7 +11,7 @@ const ProjectReporter = {
         "delivery_at" < "delivered_at"
           OR 
         "delivery_at" > current_date
-      ORDER BY "delivery_at"`
+      ORDER BY "delivery_at";`
     )
   
     return response.json(results.rows)
@@ -52,7 +52,6 @@ const ProjectReporter = {
     )
   
     return response.json(results.rows)
-  
   }
 }
 
