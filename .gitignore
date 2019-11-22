@@ -63,3 +63,4 @@ typings/
 /src/scripts/tables/all_sql_in_one_file.js
 /src/scripts/tables/all_sql_commands.sql
 /src/scripts/seeds/all_sql_commands.sql
+/src/scripts/seeds/all_sql_in_one_file.js
