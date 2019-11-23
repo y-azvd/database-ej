@@ -26,10 +26,10 @@ const DirectorController = {
 
     return response.json(results)
   },
-  
-  async delete(request, response) {
-    return response.json({ok: 'lets delete it'})
-  }
+
+  // async delete(request, response) {
+  //   return response.json({ok: 'lets delete it'})
+  // }
 }
 
 module.exports = DirectorController
