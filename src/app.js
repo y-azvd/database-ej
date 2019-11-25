@@ -30,6 +30,8 @@ app.post('/projects', ProjectController.create)
 
 app.get('/directors', DirectorController.index)
 app.post('/directors', DirectorController.create)
+app.put('/directors/:id', DirectorController.update)
+app.delete('/directors/:cpf', DirectorController.delete)
 
 
 // Relatórios
