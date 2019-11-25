@@ -22,6 +22,8 @@ app.delete('/members/:cpf', MemberController.delete)
 
 app.get('/projects',ProjectController.index)
 app.post('/projects', ProjectController.create)
+app.put('/projects', ProjectController.update)
+app.delete('/projects',ProjectController.delete)
 
 app.get('/directors', DirectorController.index)
 app.post('/directors', DirectorController.create)

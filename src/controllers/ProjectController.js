@@ -3,7 +3,28 @@ const db = require('../database')
 const ProjectController = {
     async index(request, response) {
         const results = await db.query(
-        `SELECT * from projects`)
+        `SELECT 
+          "projects"."project_id",
+          "projects"."name",
+
+          "client"."name" AS "client",
+          
+          "projects"."started_at",
+          "projects"."delivery_at",
+          "projects"."delivered_at",
+          "projects"."link_drive",
+          "projects"."difficulty",
+          "projects"."revenue",
+          "projects"."price",
+          "projects"."nps"
+            
+        FROM 
+          "projects" "p"
+          INNER JOIN
+          "clients" "c",
+          ON "c"."client_id" = "p"."project_id"
+          
+        `)
         return response.json(results.rows)
     },
 
@@ -19,6 +40,24 @@ const ProjectController = {
         return response.json(request.body)
     
     },
+
+/*    async update(request, response) {
+      let results = await db.query(
+        `SELECT * FROM projects
+        WHERE project_id = '${request.params.id}'
+        ` 
+      )
+      
+      if (!results.rows[0]) {
+        return response.status(404).json({error: 'Not Found'})
+      }
+
+      cons project = results.rows[0]
+      console.log(project)
+
+*/
+
+    }
 
     async delete(request, response) {
         const project_id = request.params.id
@@ -37,7 +76,7 @@ const ProjectController = {
 
 
 
-}
+
 
 module.exports = ProjectController
 
